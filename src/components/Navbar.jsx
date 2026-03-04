@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full bg-white px-[5%] py-6 flex justify-between items-center shadow-md z-[1000] transition-transform duration-300 ">
       {/*Logo or Name */}
-      <h1 className="text-xl font-bold cursor-pointer">ANUGRAH K</h1>
+      <h1 className="text-xl font-bold cursor-pointer">ANUGRAH KARIYATT</h1>
 
       {/*If NOT in project page → show normal navbar*/}
       {!isStandalonePage && (

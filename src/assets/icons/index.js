@@ -18,6 +18,10 @@ import PostmanIcon from "./Postman.svg?react";
 import RightArrowKey from "./arrow-right.svg?react";
 import LinkedInIcon from "./LinkedIn.svg?react";
 import LocationIcon from "./LocationIcon.svg?react";
+import Redis from "./Redis.svg?react";
+import Redux from "./Redux.svg?react";
+import Docker from "./Docker.svg?react";
+import PostgresSQL from "./PostgresSQL.svg?react";
 export {
   HtmlIcon,
   CSS3Icon,
@@ -34,6 +38,10 @@ export {
   GithubIcon,
   GitIcon,
   PostmanIcon,
+  PostgresSQL,
+  Redis,
+  Redux,
+  Docker,
   NpmIcon,
   RightArrowKey,
   LocationIcon,

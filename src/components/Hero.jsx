@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import ResumePDF from "/Anugrah_Junior_Full_Stack_Developer.pdf";
+import ResumePDF from "/Anugrah_Kariyatt_Full_Stack_Resume.pdf";
 import { Link } from "react-router-dom";
 
 const containerVariants = {
@@ -45,7 +45,7 @@ const Hero = () => {
       >
         <Typewriter
           options={{
-            strings: ["Problem Solver", "Creative Coder", "Product Builder"],
+            strings: ["Problem Solver", "API Designer", "Product Builder"],
             autoStart: true,
             loop: true,
             cursor: "|",

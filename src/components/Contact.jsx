@@ -27,14 +27,14 @@ const contactData = [
   {
     icon: <LinkedInIcon className="w-6 h-6 text-blue-700" />,
     title: "LinkedIn",
-    value: "linkedin.com/in/anugrah-k78",
-    href: "https://www.linkedin.com/in/anugrah-k78/",
+    value: "https://www.linkedin.com/in/anugrahkariyatt",
+    href: "https://www.linkedin.com/in/anugrahkariyatt/",
   },
   {
     icon: <GithubIcon className="w-6 h-6 text-gray-800" />,
     title: "GitHub",
-    value: "github.com/Anugrah71",
-    href: "https://github.com/Anugrah71",
+    value: "https://github.com/anugrahkariyatt",
+    href: "https://github.com/anugrahkariyatt",
   },
 ];
 

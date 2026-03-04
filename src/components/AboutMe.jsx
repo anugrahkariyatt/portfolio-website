@@ -81,33 +81,33 @@ const AboutMe = () => {
             className="leading-relaxed text-[1.05rem] text-gray-600"
             variants={rightFade}
           >
-            I'm <span className="font-semibold text-gray-900">Anugrah K</span>,
-            a BCA graduate and full-stack web developer focused on building
-            efficient, scalable applications using the MERN stack.
+            I'm{" "}
+            <span className="font-semibold text-gray-900">
+              Anugrah Kariyatt
+            </span>
+            , a BCA graduate and full-stack developer from Kozhikode, Kerala.
+            I build real-world web applications using React, Node.js, Express,
+            MongoDB, and PostgreSQL — working confidently across both the
+            frontend and backend.
           </motion.p>
 
           <motion.p
             className="leading-relaxed text-[1.05rem] text-gray-600"
             variants={rightFade}
           >
-            I enjoy solving problems through code and crafting intuitive
-            interfaces with React and Tailwind, supported by reliable backend
-            logic in Node.js and Express. My projects include end-to-end
-            applications like a food ordering system and a task manager that
-            strengthened my understanding of REST APIs, authentication, and
-            full-cycle deployment.
+            I enjoy designing clean REST APIs, structuring scalable codebases,
+            and implementing authentication systems from scratch. My recent
+            projects include an AI content platform, a weather analytics
+            dashboard, and a full-stack food ordering app with Docker support.
           </motion.p>
 
           <motion.p
             className="leading-relaxed text-[1.05rem] text-gray-600"
             variants={rightFade}
           >
-            I'm now sharpening my focus on system architecture, performance
-            optimization, and UX-driven design, pushing beyond code to build
-            products that are both technically strong and user-centric. My goal
-            is to join a team where I can contribute to impactful projects,
-            scale my engineering mindset, and continue growing into a strong
-            full-stack engineer.
+            I'm now focused on growing into system design and learning how to
+            build applications that scale. My goal is to join a team where I
+            can contribute from day one and keep leveling up as an engineer.
           </motion.p>
 
           <motion.div
@@ -116,14 +116,14 @@ const AboutMe = () => {
           >
             {[
               { title: "Degree", text: "BCA (2025)" },
-              { title: "Projects", text: "Full-Stack Development" },
-              { title: "Focus", text: "Clean UI & Reliable Backend" },
+              { title: "Projects", text: "4 Built" },
+              { title: "Focus", text: "System Design & Scaling" },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 variants={boxVariant}
                 whileHover={{ scale: 1.05 }}
-                className="p-5 bg-[#f9fafb] shadow-sm rounded-xl text-center border-t-[3px] border-black-500 hover:shadow-md transition"
+                className="p-5 bg-[#f9fafb] shadow-sm rounded-xl text-center  hover:shadow-md transition"
               >
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">
                   {item.title}

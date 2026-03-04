@@ -1,4 +1,3 @@
-// src/data/projectsData.js
 import Todo1 from "../assets/Todo1.png";
 import Todo2 from "../assets/Todo2.png";
 import Todo3 from "../assets/Todo3.png";
@@ -6,12 +5,15 @@ import Todo4 from "../assets/Todo4.png";
 import Todo5 from "../assets/Todo5.png";
 import Todo6 from "../assets/Todo6.png";
 
-import Food1 from "../assets/Food1.png";
-import Food2 from "../assets/Food2.png";
-import Food3 from "../assets/Food3.png";
-import Food4 from "../assets/Food4.png";
-import Food5 from "../assets/Food5.png";
-import Food6 from "../assets/Food6.png";
+
+import WeatherApp1 from "../assets/WeatherApp1.png";
+import WeatherApp2 from "../assets/WeatherApp2.png";
+import WeatherApp3 from "../assets/WeatherApp3.png";
+import WeatherApp4 from "../assets/WeatherApp4.png";
+import WeatherApp5 from "../assets/WeatherApp5.png";
+import WeatherApp6 from "../assets/WeatherApp6.png";
+import WeatherApp7 from "../assets/WeatherApp7.png";
+import WeatherApp8 from "../assets/WeatherApp8.png";
 
 import Quick1 from "../assets/Quick1.png";
 import Quick2 from "../assets/Quick2.png";
@@ -23,34 +25,26 @@ import Quick7 from "../assets/Quick7.png";
 import Quick8 from "../assets/Quick8.png";
 import Quick9 from "../assets/Quick9.png";
 
-// import Weather1 from "../assets/Weather1.png";
-// import Weather2 from "../assets/Weather2.png";
-// import Weather3 from "../assets/Weather3.png";
-// import Weather4 from "../assets/Weather4.png";
-// import Weather5 from "../assets/Weather5.png";
-// import Weather6 from "../assets/Weather6.png";
-
-import WeatherApp1 from "../assets/WeatherApp1.png";
-import WeatherApp2 from "../assets/WeatherApp2.png";
-import WeatherApp3 from "../assets/WeatherApp3.png";
-import WeatherApp4 from "../assets/WeatherApp4.png";
-import WeatherApp5 from "../assets/WeatherApp5.png";
-import WeatherApp6 from "../assets/WeatherApp6.png";
-import WeatherApp7 from "../assets/WeatherApp7.png";
-import WeatherApp8 from "../assets/WeatherApp8.png";
+import Food1 from "../assets/Food1.png";
+import Food2 from "../assets/Food2.png";
+import Food3 from "../assets/Food3.png";
+import Food4 from "../assets/Food4.png";
+import Food5 from "../assets/Food5.png";
+import Food6 from "../assets/Food6.png";
 
 export const projectData = [
+ 
   {
     id: 1,
     title: "Weather Analytics Dashboard",
     description:
-      "A full-stack weather monitoring dashboard that displays real-time conditions, forecasts, and historical analytics using React, Node.js, Express, and WeatherAPI.",
+      "A full-stack weather dashboard with real-time conditions, 24-hour forecasts, and 7-day trends — powered by a Node.js proxy backend with Redis caching and rate limiting.",
     imageUrl: WeatherApp1,
     tagline:
       "Real-time weather tracking with analytics, forecasts, and caching for high performance.",
     liveDemo: "https://weather-analytics-dashboar-rzv1.vercel.app/",
-    github: "https://github.com/Anugrah71/Weather-Analytics-Dashboard",
-    overview: `A full-stack weather analytics application providing real-time weather data, 7-day forecasts, and historical trends for multiple cities. Built with React (Vite + Redux Toolkit) on the frontend and Node.js with Express on the backend. The server acts as a proxy to WeatherAPI, with caching and rate limiting to optimize performance and reduce API usage. Users can search cities, view detailed charts, and save favorite locations with persistent state (localStorage).`,
+    github: "https://github.com/anugrahkariyatt/Weather-Analytics-Dashboard",
+    overview: `A full-stack weather analytics application providing real-time weather data, 7-day forecasts, and historical trends for multiple cities. Built with React and Redux Toolkit on the frontend and Node.js with Express on the backend. The server acts as a proxy to WeatherAPI, using Redis caching and rate limiting to optimize performance and reduce redundant API calls. Users can search cities, view detailed charts, and save favorite locations with persistent state.`,
 
     stack: [
       "React",
@@ -59,7 +53,7 @@ export const projectData = [
       "Recharts",
       "Node.js",
       "Express.js",
-      "WeatherAPI",
+      "Redis",
     ],
 
     techStack: {
@@ -74,7 +68,7 @@ export const projectData = [
       Backend: [
         "Node.js",
         "Express.js",
-        "cors",
+        "Redis (Caching)",
         "express-rate-limit",
         "dotenv",
       ],
@@ -95,11 +89,11 @@ export const projectData = [
     features: [
       {
         title: "Real-Time Weather",
-        desc: "Fetches and displays live temperature, humidity, wind speed, UV index, and more.",
+        desc: "Fetches and displays live temperature, humidity, wind speed, UV index, and more for any city.",
       },
       {
-        title: "Advanced Charts",
-        desc: "Hourly forecast, temperature trends, and wind patterns using Recharts.",
+        title: "Interactive Charts",
+        desc: "24-hour temperature forecasts and 7-day wind trends visualized using Recharts.",
       },
       {
         title: "City Search",
@@ -107,15 +101,15 @@ export const projectData = [
       },
       {
         title: "Favorites System",
-        desc: "Users can save cities locally; data persists through localStorage.",
+        desc: "Users can save and manage favorite cities with persistent state.",
       },
       {
-        title: "Server Caching",
-        desc: "In-memory caching layer reduces WeatherAPI calls and improves speed.",
+        title: "Redis Caching",
+        desc: "Server-side Redis caching with TTL expiry reduces redundant external API calls.",
       },
       {
         title: "Rate Limiting",
-        desc: "Protects the backend from abuse using express-rate-limit middleware.",
+        desc: "express-rate-limit middleware restricts traffic to 60 requests per minute per IP.",
       },
     ],
 
@@ -123,62 +117,66 @@ export const projectData = [
       {
         title: "Optimizing API Calls",
         problem:
-          "WeatherAPI has rate limits, and calling it repeatedly for multiple cities caused throttling.",
+          "WeatherAPI has rate limits, and fetching data for multiple cities caused throttling.",
         solution:
-          "Implemented in-memory caching with TTL and added server-side rate limiting to reduce external requests.",
+          "Implemented Redis caching with TTL and added server-side rate limiting to reduce external requests significantly.",
       },
       {
-        title: "Handling Responsive Charts",
+        title: "Responsive Charts",
         problem:
           "Charts were distorted on smaller screens due to dynamic font sizes and container widths.",
         solution:
-          "Added a custom resize hook and responsive container settings to adjust chart dimensions on-the-fly.",
+          "Added a custom resize hook and responsive container settings to adjust chart dimensions on the fly.",
       },
       {
         title: "State Management Scaling",
         problem:
           "Managing multiple cities, favorites, and async weather requests caused complexity.",
         solution:
-          "Separated logic into Redux slices, added thunks for API calls, and used localStorage syncing.",
+          "Separated logic into Redux slices with thunks for API calls and synced favorites to localStorage.",
       },
     ],
 
     outcome: {
       learned:
-        "Strengthened skills in Redux Toolkit, building analytics dashboards, server-side caching, API proxying, and chart visualizations. Learned to optimize API usage with caching and rate limiting.",
+        "Strengthened skills in Redux Toolkit, server-side caching with Redis, API proxying, rate limiting, and building data visualization dashboards with Recharts.",
       improvements:
-        "Future enhancements could include user accounts, global maps with weather layers, push notifications for extreme weather alerts, and a more advanced analytics page with custom date filters.",
+        "Future enhancements could include user accounts, global weather maps, push notifications for extreme weather alerts, and advanced analytics with custom date filters.",
     },
   },
+
 
   {
     id: 2,
     title: "AI Content Creation Platform",
     description:
-      "A full-stack MERN application that leverages multiple AI APIs to help users create articles, generate images, and analyze documents.",
+      "A full-stack AI platform integrating Gemini and Clipdrop APIs to provide text generation, image creation, and resume analysis tools — with Clerk authentication and a freemium usage model.",
     imageUrl: Quick1,
     tagline:
       "A full-stack AI suite for content generation, image manipulation, and document analysis.",
     liveDemo: null,
-    github: "https://github.com/anugrah71/react-ai-app",
-    overview: `This AI-powered content creation platform is a full-stack MERN application that leverages artificial intelligence to help users create various types of content. The platform provides a suite of AI tools for content generation (articles, blog titles), image manipulation (AI image generation, background removal, object removal), and document analysis (resume reviewer). It features a secure user authentication system using Clerk, with a free plan limited by usage counts stored in user metadata. The backend is built with Node.js/Express and communicates with multiple APIs (OpenAI/Gemini, Clipdrop, Cloudinary) to perform AI tasks, storing user creations in a PostgreSQL database (Neon). The frontend is a responsive React application built with Vite, using React Router for navigation and Axios for API communication.`,
+    github: "https://github.com/anugrahkariyatt/React-Ai-app",
+    overview: `A full-stack AI content creation platform built with React and Node.js. Integrates Gemini API for text generation and resume analysis, Clipdrop for AI image generation, and Cloudinary for image transformations like background and object removal. User authentication is handled by Clerk with a freemium model — free users are limited to 10 creations, tracked via Clerk's user metadata. All generations are logged to a PostgreSQL (Neon) database, powering a community gallery feature.`,
+
     stack: [
       "React",
       "Node.js",
       "Express.js",
       "PostgreSQL",
+      "Gemini API",
       "Cloudinary",
-      "OpenAI",
+      "Clerk",
     ],
+
     techStack: {
       Frontend: [
         "React",
         "Vite",
         "React Router Dom",
-        "TailwindCSS",
+        "Tailwind CSS",
         "Axios",
         "Lucide React",
-        "AOS (Animate On Scroll)",
+        "AOS",
         "React Hot Toast",
         "React Markdown",
       ],
@@ -186,21 +184,16 @@ export const projectData = [
         "Node.js",
         "Express.js",
         "Clerk (Authentication)",
-        "OpenAI (Gemini API)",
-        "Cloudinary (Image Manipulation/Storage)",
+        "Gemini API",
+        "Cloudinary (Image Manipulation)",
         "Clipdrop (Image Generation)",
         "Multer (File Uploads)",
         "pdf-parse (Resume Parsing)",
-        "Neon (PostgreSQL)",
+        "Neon PostgreSQL",
       ],
-      Tools: [
-        "Clerk",
-        "Cloudinary",
-        "OpenAI API",
-        "Vercel (Deployment)",
-        "Nodemon",
-      ],
+      Tools: ["Clerk", "Cloudinary", "Vercel", "Nodemon"],
     },
+
     images: [
       Quick1,
       Quick2,
@@ -212,181 +205,196 @@ export const projectData = [
       Quick8,
       Quick9,
     ],
+
     features: [
       {
         title: "User Authentication",
-        desc: "Secure login/signup and user management handled by Clerk, including premium/free plan logic.",
+        desc: "Secure login and signup with Clerk, including freemium plan logic using user metadata.",
       },
       {
         title: "AI Article Writer",
-        desc: "Generates full articles based on a topic and selected length (Short, Medium, Long) using the Gemini API.",
+        desc: "Generates full articles based on topic and selected length using the Gemini API.",
       },
       {
         title: "AI Image Generation",
-        desc: "Creates images from text prompts and style selections using the Clipdrop API.",
+        desc: "Creates images from text prompts using the Clipdrop API.",
       },
       {
-        title: "Image Background Removal",
-        desc: "Upload an image to automatically remove the background using Cloudinary's AI transformation.",
+        title: "Background Removal",
+        desc: "Removes image backgrounds automatically using Cloudinary's AI transformation.",
       },
       {
-        title: "Image Object Removal",
-        desc: "Upload an image and specify an object to remove, processed by Cloudinary's generative remove feature.",
+        title: "Object Removal",
+        desc: "Removes specific objects from images using Cloudinary's generative remove feature.",
       },
       {
         title: "AI Resume Reviewer",
-        desc: "Upload a PDF resume to receive a detailed analysis and constructive feedback from the Gemini API.",
+        desc: "Upload a PDF resume to receive detailed feedback and analysis from the Gemini API.",
       },
       {
         title: "Text Summarizer",
-        desc: "Pastes long-form text to generate a concise summary using the Gemini API.",
+        desc: "Paste long-form text to generate a concise summary using the Gemini API.",
       },
       {
-        title: "Community Page",
-        desc: "Users can publish their generated images to a community feed, with features to sort by 'recent' or 'popular' (most liked).",
+        title: "Community Gallery",
+        desc: "Users can publish generated images to a shared feed, sortable by recent or popular.",
       },
       {
-        title: "Usage & Plan Limits",
-        desc: "Free users are limited to 10 creations; this is tracked via Clerk's public metadata.",
+        title: "Usage Limits",
+        desc: "Free users are limited to 10 creations, tracked and enforced via Clerk's public metadata.",
       },
     ],
+
+    challenges: [
+      {
+        title: "Freemium Authorization",
+        problem:
+          "Implementing reliable usage limits for free users without building a complex custom auth system.",
+        solution:
+          "Used Clerk's updateUserMetadata to track a free_usage counter on the backend, rejecting requests when the limit is exceeded.",
+      },
+      {
+        title: "PDF Parsing for Resume Review",
+        problem:
+          "Extracting readable text from uploaded PDF resumes to feed into an LLM prompt.",
+        solution:
+          "Used Multer to handle the file buffer and pdf-parse to extract raw text, which is then injected into a crafted Gemini prompt.",
+      },
+      {
+        title: "Managing Multiple AI APIs",
+        problem:
+          "Each API (Gemini, Clipdrop, Cloudinary) has different response formats and data types.",
+        solution:
+          "Abstracted each integration into dedicated controller functions that normalize responses into a unified format before saving to PostgreSQL.",
+      },
+    ],
+
     outcome: {
       learned:
-        "Gained advanced skills in React hooks, API integration (RESTful APIs, auth), and full-stack development communication. Practiced secure user management with Clerk, media management with Cloudinary, and integrating multiple third-party AI APIs (OpenAI, Cloudinary).",
+        "Gained experience integrating multiple AI APIs, handling file uploads and PDF parsing, implementing freemium auth logic with Clerk, and using Cloudinary for advanced image transformations.",
       improvements:
-        "The `README.md` suggests future enhancements like adding more AI tools (summarizer, filters), improving the UI/animations, adding a 'Save' or 'Download' feature for content, and optimizing image loading.",
+        "Future improvements include adding more AI tools, improving loading animations, adding a download/save feature for generated content, and optimizing image loading performance.",
     },
   },
-  // {
-  //   id: 3,
-  //   title: "React Weather App",
-  //   description:
-  //     "A React application that fetches and displays current weather data, forecasts, and air quality information based on user search.",
-  //   imageUrl: Weather1,
-  //   tagline: "A weather dashboard built with React and the WeatherAPI.",
-  //   liveDemo: "https://react-weather-app-five-iota.vercel.app/",
-  //   github: "https://github.com/Anugrah71/React-Weather-App",
-  //   overview: `This application allows users to search for a city and view detailed weather information. It fetches data from the WeatherAPI, including current conditions (temperature, humidity, wind speed, pressure, UV index, feels like temp), air quality index (AQI), and a multi-day forecast. It displays this information in a user-friendly interface, including icons for weather conditions and a line chart showing temperature trends over the next 24 hours. The app is built using React with Vite, utilizes Axios for API calls, and Chart.js for the temperature forecast chart.`, // Derived from README.md, App.jsx, Home.jsx, Weatherapi.js
-  //   stack: ["React", "Axios", "Chart.js"],
-  //   techStack: {
-  //     Frontend: ["React", "Axios", "Chart.js", "React Chartjs 2", "Vite"],
-  //     Tools: ["WeatherAPI"],
-  //   },
-  //   images: [Weather1, Weather2, Weather3, Weather4, Weather5, Weather6],
 
-  //   features: [
-  //     {
-  //       title: "City Search",
-  //       desc: "Search for weather information by city name.",
-  //     },
-  //     {
-  //       title: "Current Weather",
-  //       desc: "Displays current temperature, condition, humidity, wind speed, pressure, feels like temp, and UV index.",
-  //     },
-  //     {
-  //       title: "Air Quality Index",
-  //       desc: "Shows the current Air Quality Index (AQI) data.",
-  //     },
-  //     {
-  //       title: "Weather Forecast",
-  //       desc: "Provides a multi-day weather forecast.",
-  //     },
-  //     {
-  //       title: "Temperature Chart",
-  //       desc: "Visualizes the temperature forecast for the next 24 hours using Chart.js.",
-  //     },
-  //   ],
-  //   challenges: [
-  //     {
-  //       title: "API Integration",
-  //       problem:
-  //         "Handling asynchronous API calls to WeatherAPI and managing loading/error states.",
-  //       solution:
-  //         "Used Axios for making GET requests to the API endpoints and managed component state (e.g., weatherData, loading, error) using React's useState and useEffect hooks.", // Placeholder based on Home.jsx, Weatherapi.js
-  //     },
-  //     {
-  //       title: "Data Structuring for Chart",
-  //       problem:
-  //         "Extracting and formatting the hourly forecast data correctly for use with Chart.js.",
-  //       solution:
-  //         "Processed the forecast data received from the API to create arrays for labels (time) and data points (temperature) suitable for the Chart.js line chart component.", // Placeholder based on TemperatureChart.jsx, Home.jsx
-  //     },
-  //   ],
-  //   outcome: {
-  //     learned: `Improved skills in fetching and handling data from third-party APIs in a React application. Gained experience with data visualization using Chart.js and managing component state effectively.`, // Placeholder
-  //     improvements: `Could enhance the app by adding geolocation to get weather for the user's current location, allowing users to save favorite locations, or adding more detailed charts (e.g., precipitation probability).`, // Placeholder
-  //   },
-  // },
+
   {
     id: 3,
-    title: "Food Website",
+
+    title: "Food Delivery App",
     description:
-      "A full-stack MERN application for browsing food items, adding them to a cart, and placing orders, with user authentication.",
+      "A full-stack MERN food ordering app where users can browse menus, manage a cart, and place orders — with dual JWT authentication, email-based password reset, Cloudinary image uploads, and Docker support.",
     imageUrl: Food1,
     tagline:
-      "A food ordering platform built with React, Node.js, Express, and MongoDB.",
+      "A full-stack food ordering platform with production-grade auth, cloud image uploads, and Docker.",
     liveDemo: "https://food-website-1-ck7j.onrender.com",
-    github: "https://github.com/Anugrah71/Food_website",
-    overview: `A MERN stack application where users can sign up, log in, browse food items categorized and displayed with details (name, image, description, options, price), search for items, add selected items (with quantity and size options) to a shopping cart, view the cart, and place orders. User authentication is handled using JWT and bcrypt for password hashing. The backend fetches food items and categories from a MongoDB database and provides APIs for user management, data retrieval, and order placement. The frontend uses React with React Router for navigation and Context API for managing the shopping cart state. Styling is done using Bootstrap and custom CSS.`, // Derived from README.md and code structure
-    stack: ["MongoDB", "Express.js", "React", "Node.js", "Bootstrap"],
+    github: "https://github.com/anugrahkariyatt/Food_website",
+    overview: `A full-stack MERN food ordering application where users can browse categorized menus, manage a shopping cart, and place orders with full order history tracking. Built with React 19 and Vite on the frontend and Node.js with Express 5 on the backend. Features a dual-token JWT authentication system (access + refresh tokens) with a complete forgot password and email-based reset flow using Nodemailer. Media is handled via Cloudinary and Multer for cloud image uploads. Input is validated using Joi and express-validator. The entire application is containerized with Docker and Docker Compose.`,
+
+    stack: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "JWT",
+      "Cloudinary",
+      "Docker",
+    ],
+
     techStack: {
-      Frontend: ["React", "React Router", "Bootstrap", "Context API"],
+      Frontend: [
+        "React 19",
+        "Vite",
+        "Tailwind CSS v4",
+        "React Router DOM",
+        "Swiper",
+        "MUI Icons",
+      ],
       Backend: [
         "Node.js",
         "Express.js",
+        "MongoDB",
         "Mongoose",
-        "JWT",
+        "JWT (Access + Refresh Tokens)",
         "bcryptjs",
-        "Express Validator",
+        "Nodemailer",
+        "Cloudinary",
+        "Multer",
+        "Joi",
+        "express-validator",
       ],
-      Tools: ["MongoDB", "Nodemon"],
+      Tools: ["Docker", "Docker Compose", "Nodemon"],
     },
+
     images: [Food1, Food2, Food3, Food4, Food5, Food6],
 
     features: [
       {
-        title: "Authentication",
-        desc: "Secure user signup and login using JWT and bcryptjs password hashing, with input validation.",
-      },
-      {
-        title: "Food Browsing & Search",
-        desc: "Displays food items fetched from the database, categorized, and searchable.",
+        title: "Food Browsing",
+        desc: "Users can browse categorized menus, search items, and view detailed food information.",
       },
       {
         title: "Shopping Cart",
-        desc: "Allows users to add items with quantity/size options to a cart managed with Context API.",
-      },
-      {
-        title: "Order Placement",
-        desc: "Users can checkout their cart, saving the order details linked to their user ID.",
+        desc: "Dynamic cart management with real-time price calculations across all routes.",
       },
       {
         title: "Order History",
-        desc: "Users can view their past orders.",
+        desc: "Users can place orders and view their complete order history.",
+      },
+      {
+        title: "Dual JWT Auth",
+        desc: "Access and refresh token system for secure, persistent user sessions.",
+      },
+      {
+        title: "Forgot Password",
+        desc: "Complete password reset flow with time-limited email links sent via Nodemailer.",
+      },
+      {
+        title: "Cloud Image Uploads",
+        desc: "Food item images are uploaded and served via Cloudinary using Multer.",
+      },
+      {
+        title: "Input Validation",
+        desc: "Strict data validation on all API inputs using Joi and express-validator.",
+      },
+      {
+        title: "Docker Support",
+        desc: "Frontend, backend, and database containerized with Docker and Docker Compose.",
       },
     ],
+
     challenges: [
       {
-        title: "Context API for Cart",
+        title: "Dual Token Authentication",
         problem:
-          "Managing the global state of the shopping cart across different components.",
+          "Basic JWT auth didn't provide a good balance of security and session persistence.",
         solution:
-          "Implemented React's Context API with a reducer function (ContextReducer.js) to handle adding, removing, and updating items in the cart state.", // Placeholder based on frontend/src/context/ContextReducer.js
+          "Built a dual-token system with short-lived access tokens and long-lived refresh tokens, with a centralized middleware to handle token refresh across all protected routes.",
       },
       {
-        title: "Backend Data Fetching",
+        title: "Password Reset Flow",
         problem:
-          "Efficiently fetching and sending categorized food data from MongoDB to the frontend.",
+          "Implementing a secure, time-limited password reset without a third-party auth service.",
         solution:
-          "Created backend routes (DisplayData.js) using Mongoose to query two collections (food_items, foodCategory) and send them as a combined response for the frontend to render.", // Placeholder based on backend/db.js, backend/Routes/DisplayData.js
+          "Generated signed JWT reset tokens with short expiry, sent via Nodemailer, and validated on the backend before allowing password updates.",
+      },
+      {
+        title: "Image Upload to Cloud",
+        problem:
+          "Storing images on the server directly was not scalable.",
+        solution:
+          "Integrated Multer for file interception and Cloudinary for cloud storage, offloading media management from the server entirely.",
       },
     ],
+
     outcome: {
-      learned: `Gained experience in building a functional e-commerce type application with the MERN stack, focusing on user authentication, state management, and API integration. Practiced using Mongoose for database interactions.`, // Placeholder
-      improvements: `Could add features like payment gateway integration, user profile management, admin panel for managing food items, or real-time order status updates.`, // Placeholder
+      learned:
+        "Deepened understanding of JWT authentication flows, token refresh strategies, email services with Nodemailer, cloud media management with Cloudinary, and containerization with Docker.",
+      improvements:
+        "Future enhancements could include payment gateway integration, real-time order tracking, an admin dashboard for managing menus, and push notifications for order updates.",
     },
   },
-
+  
   {
     id: 4,
     title: "Todo App",
