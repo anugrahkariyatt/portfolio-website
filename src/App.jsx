@@ -6,7 +6,6 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Project from "./pages/Project";
-import ContactMe from "./components/ContactMe";
 import AboutMe from "./components/AboutMe";
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
 
       <Routes>
         <Route path="/project/:id" element={<Project />} />
-        <Route path="/ContactMe" element={<ContactMe />} />
+        <Route path="/ContactMe" element={<Contact />} />
 
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />

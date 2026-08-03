@@ -45,7 +45,7 @@ const Hero = () => {
       >
         <Typewriter
           options={{
-            strings: ["Problem Solver", "API Designer", "Product Builder"],
+            strings: [" MERN Stack Developer", "Backend Developer", "Node.js Developer","Next.js Developer"],
             autoStart: true,
             loop: true,
             cursor: "|",
@@ -87,9 +87,9 @@ const Hero = () => {
         variants={itemVariants}
         className="max-w-[700px] text-[0.95rem] sm:text-[1rem] md:text-[1.1rem] leading-relaxed text-[#555]"
       >
-        I think beyond just features, I care about how every decision affects
-        performance, design, and the overall experience. For me, good
-        development is about building something that feels right to use.
+        MERN Stack Developer passionate about building scalable,
+        secure, and high-performance web applications. I enjoy designing robust
+        backend systems, integrating AI-powered features, and creating seamless user experiences.
       </motion.p>
     </motion.section>
   );

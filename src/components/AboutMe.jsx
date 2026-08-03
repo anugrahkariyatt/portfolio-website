@@ -85,29 +85,30 @@ const AboutMe = () => {
             <span className="font-semibold text-gray-900">
               Anugrah Kariyatt
             </span>
-            , a BCA graduate and full-stack developer from Kozhikode, Kerala.
-            I build real-world web applications using React, Node.js, Express,
-            MongoDB, and PostgreSQL — working confidently across both the
-            frontend and backend.
+            , a MERN Stack Developer from Kozhikode, Kerala,
+            with hands-on industry experience gained through a MERN Stack internship at Limizny Technologies Pvt. Ltd.
+            I build scalable full-stack web applications using Next.js, React.js, Node.js, Express.js, TypeScript, and MongoDB.
           </motion.p>
 
           <motion.p
             className="leading-relaxed text-[1.05rem] text-gray-600"
             variants={rightFade}
           >
-            I enjoy designing clean REST APIs, structuring scalable codebases,
-            and implementing authentication systems from scratch. My recent
-            projects include an AI content platform, a weather analytics
-            dashboard, and a full-stack food ordering app with Docker support.
+            I enjoy designing RESTful APIs, implementing secure authentication,
+            integrating AI-powered features, and building workflow automation
+            using technologies like Gemini API, n8n, Stripe, and Cloudinary.
+            My recent work includes an AI-powered Job Application Tracker,
+            a Weather Analytics Dashboard, and a Food Delivery application.
           </motion.p>
 
           <motion.p
             className="leading-relaxed text-[1.05rem] text-gray-600"
             variants={rightFade}
           >
-            I'm now focused on growing into system design and learning how to
-            build applications that scale. My goal is to join a team where I
-            can contribute from day one and keep leveling up as an engineer.
+            I'm passionate about backend development and system design,
+            and I'm continuously improving my skills to build secure, scalable, and maintainable software.
+            I'm currently seeking opportunities where I can contribute
+            to real-world products while growing as a Full Stack Developer
           </motion.p>
 
           <motion.div

@@ -47,7 +47,7 @@ const Projects = () => {
         className="projects-grid grid gap-8 sm:gap-10 md:gap-12 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2"
         variants={containerVariants}
       >
-        {projectData.map((item) => (
+        {[...projectData].sort((a, b) => b.id - a.id).map((item) => (
           <motion.div
             key={item.id}
             variants={cardVariant}
