@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import ResumePDF from "/Anugrah_Kariyatt_MERN_Stack_Developer.pdf";
 import { Link } from "react-router-dom";
 
 const containerVariants = {
@@ -58,8 +57,10 @@ const Hero = () => {
         className="flex flex-col sm:flex-row gap-4 sm:gap-6  lg:gap-2 mb-10"
       >
         <motion.a
-          href={ResumePDF}
-          download
+          href="/Anugrah_Kariyatt_MERN_Stack_Developer.pdf"
+          download="Anugrah_Kariyatt_MERN_Stack_Developer.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="relative overflow-hidden group w-full sm:w-auto md:w-58 lg:w-60 px-8 py-3 sm:py-4 border-2 border-[#333] bg-transparent text-[1rem] sm:text-[1.1rem] cursor-pointer transition-all duration-300 inline-flex items-center justify-center gap-2"
