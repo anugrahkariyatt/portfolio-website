@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import ResumePDF from "/Anugrah_Kariyatt_Full_Stack_Resume.pdf";
+import ResumePDF from "/Anugrah_Kariyatt_MERN_Stack_Developer.pdf";
 import { Link } from "react-router-dom";
 
 const containerVariants = {
