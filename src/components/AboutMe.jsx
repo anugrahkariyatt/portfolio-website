@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-
+import ExperienceTimeline from "./ExperienceTimeline";
+import TiltCard from "./TiltCard";
+import { GraduationCap, Briefcase, Server } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -7,35 +9,17 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.5,
+      delayChildren: 0.2,
     },
   },
 };
 
-const leftFade = {
-  hidden: { opacity: 0, x: -60 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-};
-
 const rightFade = {
-  hidden: { opacity: 0, x: 60 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-};
-
-const boxVariant = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.4, ease: "easeOut" },
   },
 };
 
@@ -47,94 +31,82 @@ const AboutMe = () => {
       whileInView="show"
       viewport={{ once: true }}
       id="about"
+      className="py-20 px-4 sm:px-8 md:px-12 bg-[#080B12] text-[#F1F3F5]"
     >
       <motion.h2
-        className="section-title text-center mb-12"
+        className="section-title text-center mb-12 font-extrabold text-[#F1F3F5]"
         id="about"
         variants={rightFade}
       >
-        About <span>Me</span>
+        About Me
       </motion.h2>
 
-      <motion.div
-        className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row shadow-lg p-6 rounded-md gap-12"
-        variants={containerVariants}
-      >
-        <motion.div
-          className="flex flex-col items-center gap-4 w-full md:w-1/3"
-          variants={leftFade}
-        >
-          <div className="w-58 h-58 rounded-full overflow-hidden border-[3px] shadow-sm mt-5">
+      {/* About Me Card (Sized cleanly to max-w-5xl to match Experience Timeline) */}
+      <TiltCard className="max-w-5xl mx-auto p-6 md:p-8 mb-16 bg-[#10141D] border border-[#202632] rounded-2xl shadow-xl">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+          <div className="w-52 h-52 md:w-72 md:h-72 rounded-2xl overflow-hidden border border-[#202632] p-1 shrink-0 shadow-xl self-start">
             <img
               src="/Anugrah.jpg"
               alt="Anugrah K"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-xl"
             />
           </div>
-        </motion.div>
 
-        <motion.div
-          className="flex flex-col gap-6 w-full md:w-2/3"
-          variants={rightFade}
-        >
-          <motion.p
-            className="leading-relaxed text-[1.05rem] text-gray-600"
-            variants={rightFade}
-          >
-            I'm{" "}
-            <span className="font-semibold text-gray-900">
-              Anugrah Kariyatt
-            </span>
-            , a MERN Stack Developer from Kozhikode, Kerala,
-            with hands-on industry experience gained through a MERN Stack internship at Limizny Technologies Pvt. Ltd.
-            I build scalable full-stack web applications using Next.js, React.js, Node.js, Express.js, TypeScript, and MongoDB.
-          </motion.p>
+          <div className="flex flex-col gap-4 text-[#8B93A1]">
+            <p className="leading-relaxed text-sm md:text-base">
+              I'm <strong className="text-[#F1F3F5]">Anugrah</strong>, a BCA graduate and Full Stack Developer with a strong focus on backend development. I build web applications and backend systems using JavaScript, Node.js, Express.js, React, TypeScript, Next.js, and databases.
+            </p>
 
-          <motion.p
-            className="leading-relaxed text-[1.05rem] text-gray-600"
-            variants={rightFade}
-          >
-            I enjoy designing RESTful APIs, implementing secure authentication,
-            integrating AI-powered features, and building workflow automation
-            using technologies like Gemini API, n8n, Stripe, and Cloudinary.
-            My recent work includes an AI-powered Job Application Tracker,
-            a Weather Analytics Dashboard, and a Food Delivery application.
-          </motion.p>
+            <p className="leading-relaxed text-sm md:text-base">
+              During my internship at <strong className="text-[#F1F3F5]">Limenzy Technologies</strong>, I worked under the mentorship of experienced software developers and contributed to a real-world Job Application Tracker. I worked across both frontend and backend development, including REST APIs, database design, authentication and authorization, third-party integrations, AI-powered features, and workflow automation.
+            </p>
 
-          <motion.p
-            className="leading-relaxed text-[1.05rem] text-gray-600"
-            variants={rightFade}
-          >
-            I'm passionate about backend development and system design,
-            and I'm continuously improving my skills to build secure, scalable, and maintainable software.
-            I'm currently seeking opportunities where I can contribute
-            to real-world products while growing as a Full Stack Developer
-          </motion.p>
+            <p className="leading-relaxed text-sm md:text-base">
+              Alongside my internship work, I've built projects such as a <strong className="text-[#F1F3F5]">Weather Analytics Dashboard</strong> with Redis caching and rate limiting, and a <strong className="text-[#F1F3F5]">Food Delivery application</strong> with JWT authentication, validation, Cloudinary, and Docker. These projects have helped me develop a stronger understanding of APIs, databases, authentication, performance, and application architecture.
+            </p>
 
-          <motion.div
-            className="grid sm:grid-cols-3 gap-6 mt-4"
-            variants={containerVariants}
-          >
-            {[
-              { title: "Degree", text: "BCA (2025)" },
-              { title: "Projects", text: "4 Built" },
-              { title: "Focus", text: "System Design & Scaling" },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={boxVariant}
-                whileHover={{ scale: 1.05 }}
-                className="p-5 bg-[#f9fafb] shadow-sm rounded-xl text-center  hover:shadow-md transition"
-              >
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-gray-500">{item.text}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </motion.div>
+            <p className="leading-relaxed text-sm md:text-base text-[#F1F3F5] font-medium">
+              I'm currently focused on becoming a stronger backend engineer, with a particular interest in system design, scalable architecture, and building secure, maintainable applications.
+            </p>
+
+            {/* Quick Metrics */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-[#202632] mt-2">
+              <div className="p-3.5 bg-[#080B12] rounded-xl border border-[#202632] flex items-center gap-3">
+                <div className="p-2 bg-[#7C6CFF]/10 text-[#7C6CFF] rounded-lg shrink-0">
+                  <GraduationCap size={18} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h4 className="text-[11px] text-[#8B93A1] uppercase font-semibold">Degree</h4>
+                  <p className="text-xs font-bold text-[#F1F3F5] leading-snug">BCA Graduate</p>
+                </div>
+              </div>
+
+              <div className="p-3.5 bg-[#080B12] rounded-xl border border-[#202632] flex items-center gap-3">
+                <div className="p-2 bg-[#7C6CFF]/10 text-[#7C6CFF] rounded-lg shrink-0">
+                  <Briefcase size={18} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h4 className="text-[11px] text-[#8B93A1] uppercase font-semibold">Experience</h4>
+                  <p className="text-xs font-bold text-[#F1F3F5] leading-snug">MERN Intern @ Limenzy</p>
+                </div>
+              </div>
+
+              <div className="p-3.5 bg-[#080B12] rounded-xl border border-[#202632] flex items-center gap-3">
+                <div className="p-2 bg-[#7C6CFF]/10 text-[#7C6CFF] rounded-lg shrink-0">
+                  <Server size={18} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h4 className="text-[11px] text-[#8B93A1] uppercase font-semibold">Focus</h4>
+                  <p className="text-xs font-bold text-[#F1F3F5] leading-snug">Backend & System Design</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </TiltCard>
+
+      {/* Experience Timeline Section */}
+      <ExperienceTimeline />
     </motion.section>
   );
 };

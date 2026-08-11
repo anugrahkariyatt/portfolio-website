@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { projectData } from "../data/projectData";
 import { useNavigate } from "react-router-dom";
+import TiltCard from "./TiltCard";
+import { Zap, ExternalLink, Github, ArrowRight } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -15,11 +17,11 @@ const containerVariants = {
 };
 
 const cardVariant = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.35, ease: "easeOut" },
+    transition: { duration: 0.4, ease: "easeOut" },
   },
 };
 
@@ -29,99 +31,105 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="projects py-20 px-5 sm:px-10 md:px-20 min-h-screen"
+      className="py-20 px-5 sm:px-10 md:px-20 bg-[#080B12] min-h-screen text-[#F1F3F5]"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
     >
       <motion.h2
-        className="section-title text-3xl sm:text-4xl md:text-5xl text-center mb-16 font-bold"
+        className="section-title text-3xl sm:text-4xl md:text-5xl text-center mb-16 font-extrabold text-[#F1F3F5]"
         variants={cardVariant}
       >
-        Here are some of my{" "}
-        <span className="font-light text-transparent">Projects</span>
+        Featured Projects
       </motion.h2>
 
       <motion.div
-        className="projects-grid grid gap-8 sm:gap-10 md:gap-12 grid-cols-1 sm:grid-cols-1 lg:grid-cols-2"
+        className="grid gap-8 sm:gap-10 md:gap-12 grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto"
         variants={containerVariants}
       >
         {[...projectData].sort((a, b) => b.id - a.id).map((item) => (
-          <motion.div
-            key={item.id}
-            variants={cardVariant}
-            whileHover={{ scale: 1.03, y: -3 }}
-            transition={{ type: "spring", stiffness: 230, damping: 18 }}
-            onClick={() => navigate(`/project/${item.id}`)}
-            className="bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer flex flex-col h-full"
-          >
-            <div className="project-image w-full h-56 sm:h-64 md:h-72 flex items-center justify-center bg-gray-100">
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                className="rounded-md w-full h-full object-contain bg-white"
-              />
-            </div>
+          <motion.div key={item.id} variants={cardVariant}>
+            <TiltCard
+              onClick={() => navigate(`/project/${item.id}`)}
+              className="cursor-pointer flex flex-col h-full group bg-[#10141D] border border-[#202632]"
+            >
+              <div className="w-full h-60 sm:h-72 flex items-center justify-center bg-[#080B12] relative overflow-hidden p-4 border-b border-[#202632]">
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="rounded-xl w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                />
+                {item.keyMetric && (
+                  <div className="absolute bottom-3 left-3 right-3 bg-[#10141D] text-[#F1F3F5] text-xs px-3.5 py-2 rounded-xl flex items-center gap-2 border border-[#202632] shadow-lg">
+                    <Zap size={14} className="text-[#7C6CFF] shrink-0" />
+                    <span className="truncate font-medium">{item.keyMetric}</span>
+                  </div>
+                )}
+              </div>
 
-            <div className="project-content p-6 flex flex-col flex-1">
-              <div className="flex items-center gap-2 mb-2">
-                <h3 className="project-title text-lg sm:text-xl md:text-2xl text-gray-700 font-semibold">
+              <div className="p-6 md:p-8 flex flex-col flex-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#F1F3F5] mb-2 group-hover:text-[#7C6CFF] transition-colors">
                   {item.title}
                 </h3>
-              </div>
 
-              <p className="project-description text-gray-600 text-sm sm:text-base mb-2 flex-1">
-                {item.description}
-              </p>
+                <p className="text-[#8B93A1] text-sm sm:text-base mb-4 flex-1 leading-relaxed">
+                  {item.description}
+                </p>
 
-              <p className="stack-title font-semibold mb-4 text-gray-700">
-                Stack:
-              </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {item.stack.map((stack, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-[#080B12] text-[#F1F3F5] border border-[#202632] rounded-lg text-xs font-mono"
+                    >
+                      {stack}
+                    </span>
+                  ))}
+                </div>
 
-              <div className="flex flex-wrap gap-2 mb-4 overflow-x-auto whitespace-nowrap py-1">
-                {item.stack.map((stack, index) => (
-                  <span
-                    key={index}
-                    className="tech-tag px-3 py-1 bg-gray-200 rounded text-sm shrink-0"
+                <div className="flex flex-wrap items-center gap-2.5 mt-auto pt-4 border-t border-[#202632]">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/project/${item.id}`);
+                    }}
+                    className="flex-1 min-w-[120px] py-2.5 px-3 bg-[#7C6CFF] hover:bg-[#6b59ff] text-white text-xs sm:text-sm font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-1.5 cursor-pointer"
                   >
-                    {stack}
-                  </span>
-                ))}
-              </div>
+                    <span>View Details</span>
+                    <ArrowRight size={14} />
+                  </button>
 
-              <div className="project-buttons flex flex-col sm:flex-row gap-3 mt-auto">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(item.liveDemo, "_blank", "noopener,noreferrer");
-                  }}
-                  className="relative overflow-hidden group flex-1 p-3 text-center border-2 border-gray-800 bg-transparent cursor-pointer transition-all rounded-md text-gray-800 font-medium no-underline"
-                >
-                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                    Live Demo
-                  </span>
-                  <span className="absolute inset-0 bg-gray-800 origin-bottom scale-y-0 transition-transform duration-300 group-hover:scale-y-100"></span>
-                </motion.button>
+                  {item.liveDemo && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(item.liveDemo, "_blank", "noopener,noreferrer");
+                      }}
+                      className="py-2.5 px-3.5 bg-[#080B12] hover:bg-[#161c29] text-[#F1F3F5] border border-[#202632] text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer"
+                      title="Live Demo"
+                    >
+                      <span>Live</span>
+                      <ExternalLink size={14} />
+                    </button>
+                  )}
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(item.github, "_blank", "noopener,noreferrer");
-                  }}
-                  className="relative overflow-hidden group flex-1 p-3 text-center border-2 border-gray-800 bg-transparent cursor-pointer transition-all rounded-md text-gray-800 font-medium no-underline"
-                >
-                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                    Github ⚲
-                  </span>
-                  <span className="absolute inset-0 bg-gray-800 origin-bottom scale-y-0 transition-transform duration-300 group-hover:scale-y-100"></span>
-                </motion.button>
+                  {item.github && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(item.github, "_blank", "noopener,noreferrer");
+                      }}
+                      className="py-2.5 px-3.5 bg-[#080B12] hover:bg-[#161c29] text-[#F1F3F5] border border-[#202632] text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer"
+                      title="GitHub Repository"
+                    >
+                      <Github size={15} />
+                      <span>Code</span>
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
+            </TiltCard>
           </motion.div>
         ))}
       </motion.div>

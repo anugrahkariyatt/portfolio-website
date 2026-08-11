@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+import TiltCard from "./TiltCard";
+
 import {
   HtmlIcon,
   CSS3Icon,
@@ -25,10 +27,10 @@ import {
 
 const skillsData = [
   {
-    title: "Frontend",
+    title: "Frontend Development",
     skills: [
-      { icon: HtmlIcon, name: "HTML" },
-      { icon: CSS3Icon, name: "CSS" },
+      { icon: HtmlIcon, name: "HTML5" },
+      { icon: CSS3Icon, name: "CSS3" },
       { icon: JSIcon, name: "JavaScript" },
       { icon: TypeScriptIcon, name: "TypeScript" },
       { icon: ReactIcon, name: "React" },
@@ -38,23 +40,23 @@ const skillsData = [
     ],
   },
   {
-    title: "Backend",
+    title: "Backend & Databases",
     skills: [
       { icon: NodeJsIcon, name: "Node.js" },
       { icon: ExpressIcon, name: "Express.js" },
       { icon: MongoDBIcon, name: "MongoDB" },
       { icon: PostgresSQL, name: "PostgreSQL" },
-      { icon: Redis, name: "Redis" },
+      { icon: Redis, name: "Redis Cache" },
     ],
   },
   {
-    title: "Tools",
+    title: "DevOps & Tools",
     skills: [
       { icon: GitIcon, name: "Git" },
       { icon: GithubIcon, name: "GitHub" },
       { icon: PostmanIcon, name: "Postman" },
       { icon: Docker, name: "Docker" },
-      { icon: N8nIcon, name: "n8n" },
+      { icon: N8nIcon, name: "n8n Workflows" },
       { icon: NpmIcon, name: "NPM" },
     ],
   },
@@ -77,71 +79,53 @@ const cardVariant = {
   },
 };
 
-const iconVariant = {
-  hidden: { opacity: 0, scale: 0.8 },
-  show: {
-    opacity: 1,
-    scale: 1,
-    transition: { type: "spring", stiffness: 200, damping: 12 },
-  },
-};
-
 const Skills = () => {
   return (
     <motion.section
       id="skills"
-      className="py-20 px-5 sm:px-10 md:px-20 bg-[#f8f8f8]"
+      className="py-20 px-5 sm:px-10 md:px-20 bg-[#080B12] text-[#F1F3F5]"
       variants={containerVariants}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
     >
       <motion.h2
-        className="section-title text-3xl sm:text-4xl md:text-5xl text-center mb-16 font-bold"
+        className="section-title text-3xl sm:text-4xl md:text-5xl text-center mb-12 font-extrabold text-[#F1F3F5]"
         variants={cardVariant}
       >
-        My <span className="text-[#333]">Skills</span>
+        Technical Skills
       </motion.h2>
 
+
+
+      {/* Grid of Skill Categories */}
       <motion.div
-        className="grid gap-8 sm:gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-[1200px] mx-auto"
+        className="grid gap-8 grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto"
         variants={containerVariants}
       >
         {skillsData.map((item, idx) => (
-          <motion.div
-            key={idx}
-            variants={cardVariant}
-            whileHover={{ scale: 1.04 }}
-            transition={{ type: "spring", stiffness: 200, damping: 12 }}
-            className="bg-white rounded-xl p-6 sm:p-8 shadow-lg flex flex-col"
-          >
-            <motion.h3
-              variants={cardVariant}
-              className="text-2xl sm:text-3xl mb-6 sm:mb-8 text-gray-600 text-center"
-            >
-              {item.title}
-            </motion.h3>
+          <motion.div key={idx} variants={cardVariant}>
+            <TiltCard className="p-6 sm:p-8 flex flex-col h-full bg-[#10141D] border border-[#202632]">
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-[#F1F3F5] text-center border-b border-[#202632] pb-4">
+                {item.title}
+              </h3>
 
-            <motion.div
-              className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8 justify-items-center"
-              variants={containerVariants}
-            >
-              {item.skills.map((skill, i) => (
-                <motion.div
-                  key={i}
-                  variants={iconVariant}
-                  whileHover={{ scale: 1.1 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-2 rounded-full bg-[#f0f0f0] flex items-center justify-center overflow-hidden transition-transform duration-300">
-                    <skill.icon className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
+              <div className="grid grid-cols-3 gap-4 justify-items-center">
+                {item.skills.map((skill, i) => (
+                  <div
+                    key={i}
+                    className="text-center group"
+                  >
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-2 rounded-2xl bg-[#080B12] border border-[#202632] flex items-center justify-center p-3 group-hover:border-[#7C6CFF]/60 group-hover:bg-[#161c29] transition-all duration-300 shadow-md">
+                      <skill.icon className="w-full h-full object-contain group-hover:scale-110 transition-transform" />
+                    </div>
+                    <p className="text-xs font-semibold text-[#8B93A1] group-hover:text-[#7C6CFF] transition-colors">
+                      {skill.name}
+                    </p>
                   </div>
-                  <p className="text-sm sm:text-base text-gray-600">
-                    {skill.name}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
+                ))}
+              </div>
+            </TiltCard>
           </motion.div>
         ))}
       </motion.div>

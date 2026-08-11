@@ -1,77 +1,124 @@
 @import "tailwindcss";
 
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg-dark: #080B12;
+  --bg-surface: #10141D;
+  --border-color: #202632;
+  --text-main: #F1F3F5;
+  --text-muted: #8B93A1;
+  --accent: #7C6CFF;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-section {
-  padding: 5rem 10%;
-  min-height: 100vh;
+/* Surface Cards */
+.glass-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 1024px) {
-  section {
-    padding: 4rem 8%;
-  }
-  .section-title {
-    font-size: 2.5rem;
-  }
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (max-width: 768px) {
-  section {
-    padding: 3rem 6%;
-  }
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
+.glass-card-hover:hover {
+  border-color: rgba(124, 108, 255, 0.4);
+  box-shadow: 0 15px 35px -10px rgba(124, 108, 255, 0.1);
 }
 
-@media (max-width: 480px) {
-  section {
-    padding: 2.5rem 5%;
-  }
-  .section-title {
-    font-size: 1.75rem;
-    margin-bottom: 2.5rem;
-  }
-}
-
+/* Clean Typography - Section Titles (NO gradients) */
 .section-title {
-  font-size: 3rem;
+  font-size: 2.75rem;
   text-align: center;
-  margin-bottom: 4rem;
-  font-weight: 700;
+  margin-bottom: 3.5rem;
+  font-weight: 800;
   line-height: 1.2;
+  color: #F1F3F5;
+  letter-spacing: -0.02em;
 }
 
 .section-title span {
-  font-weight: 600;
-  -webkit-text-stroke: 1px #333;
-  color: transparent;
+  font-weight: 800;
+  color: #F1F3F5;
 }
 
+/* Links & Interactive */
 a {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
+  color: #F1F3F5;
+  transition: all 0.2s ease;
 }
 
 a:hover {
-  color: #666;
+  color: #7C6CFF;
 }
 
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeInUp {
-  animation: fadeInUp 0.8s ease forwards;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
+::-webkit-scrollbar-track {
+  background: #080B12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #202632;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7C6CFF;
+}
+
+/* Infinite Marquee Animation — TechMarquee component */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hero Floating Skill Strips — left & right */
+@keyframes hero-scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes hero-scroll-right {
+  0%   { transform: translateX(-33.333%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-hero-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: hero-scroll-left linear infinite;
+}
+
+.animate-hero-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: hero-scroll-right linear infinite;
+}
+
+.animate-hero-marquee-left:hover,
+.animate-hero-marquee-right:hover {
+  animation-play-state: paused;
+}

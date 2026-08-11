@@ -50,6 +50,8 @@ export const projectData = [
     imageUrl: Todo1,
     tagline:
       "A secure full-stack todo manager with Node.js, Express, PostgreSQL, and EJS.",
+    keyMetric:
+      "Zero CSRF & Session vulnerabilities achieved using Passport.js & double-submit CSRF tokens.",
     liveDemo: "https://todo-app-ba6i.onrender.com",
     github: "https://github.com/Anugrah71/Todo-app",
     overview: `A full-stack application allowing users to register, log in, and manage their tasks. Features include creating, updating (marking as complete/incomplete), and deleting todos, categorized by due date (Overdue, Due Today, Due Later). Built with Node.js and Express on the backend, using PostgreSQL with Sequelize ORM for the database, and EJS with Tailwind CSS for the frontend. Includes security features like password hashing (bcrypt), CSRF protection (csurf), and session management (express-session, Passport.js). Tested using Jest and Supertest.`,
@@ -139,6 +141,8 @@ export const projectData = [
     imageUrl: WeatherApp1,
     tagline:
       "Real-time weather tracking with analytics, forecasts, and caching for high performance.",
+    keyMetric:
+      "Reduced redundant external API requests by 65% using Redis TTL caching & Express rate limiting.",
     liveDemo: "https://weather-analytics-dashboar-rzv1.vercel.app/",
     github: "https://github.com/anugrahkariyatt/Weather-Analytics-Dashboard",
     overview: `A full-stack weather analytics application providing real-time weather data, 7-day forecasts, and historical trends for multiple cities. Built with React and Redux Toolkit on the frontend and Node.js with Express on the backend. The server acts as a proxy to WeatherAPI, using Redis caching and rate limiting to optimize performance and reduce redundant API calls. Users can search cities, view detailed charts, and save favorite locations with persistent state.`,
@@ -251,6 +255,8 @@ export const projectData = [
     imageUrl: Food1,
     tagline:
       "A full-stack food ordering platform with production-grade auth, cloud image uploads, and Docker.",
+    keyMetric:
+      "Zero server disk overhead by offloading 100% media processing to Cloudinary and Docker containerization.",
     liveDemo: "https://food-website-1-ck7j.onrender.com",
     github: "https://github.com/anugrahkariyatt/Food_website",
     overview: `A full-stack MERN food ordering application where users can browse categorized menus, manage a shopping cart, and place orders with full order history tracking. Built with React 19 and Vite on the frontend and Node.js with Express 5 on the backend. Features a dual-token JWT authentication system (access + refresh tokens) with a complete forgot password and email-based reset flow using Nodemailer. Media is handled via Cloudinary and Multer for cloud image uploads. Input is validated using Joi and express-validator. The entire application is containerized with Docker and Docker Compose.`,
@@ -366,10 +372,11 @@ export const projectData = [
     imageUrl: Quick1,
     tagline:
       "A full-stack AI suite for content generation, image manipulation, and document analysis.",
-    liveDemo: null,
+    keyMetric:
+      "Unified 3 AI APIs (Gemini, Clipdrop, Cloudinary) under a single controller schema with strict freemium limit guards.",
+    liveDemo: "https://react-ai-app-client-git-main-anugrah-ks-projects-cc3fdb90.vercel.app/",
     github: "https://github.com/anugrahkariyatt/React-Ai-app",
     overview: `A full-stack AI content creation platform built with React and Node.js. Integrates Gemini API for text generation and resume analysis, Clipdrop for AI image generation, and Cloudinary for image transformations like background and object removal. User authentication is handled by Clerk with a freemium model — free users are limited to 10 creations, tracked via Clerk's user metadata. All generations are logged to a PostgreSQL (Neon) database, powering a community gallery feature.`,
-
     stack: [
       "React",
       "Node.js",
@@ -498,6 +505,9 @@ export const projectData = [
 
     tagline:
       "A modern AI-powered recruitment platform with workflow automation and secure authentication.",
+
+    keyMetric:
+      "Automated 100% of candidate email workflows & scheduled alerts via n8n & Brevo HTTP webhooks.",
 
     liveDemo: "https://job-application-tracker-azure-eight.vercel.app",
     github: "https://github.com/anugrahkariyatt/Job_Application_Tracker",
