@@ -3,7 +3,6 @@ import Todo2 from "../assets/Todo2.png";
 import Todo3 from "../assets/Todo3.png";
 import Todo4 from "../assets/Todo4.png";
 import Todo5 from "../assets/Todo5.png";
-import Todo6 from "../assets/Todo6.png";
 
 
 import WeatherApp1 from "../assets/WeatherApp1.png";
@@ -39,7 +38,6 @@ import Food2 from "../assets/Food2.png";
 import Food3 from "../assets/Food3.png";
 import Food4 from "../assets/Food4.png";
 import Food5 from "../assets/Food5.png";
-import Food6 from "../assets/Food6.png";
 
 export const projectData = [
   {
@@ -84,7 +82,7 @@ export const projectData = [
         "Sequelize-CLI",
       ],
     },
-    images: [Todo1, Todo2, Todo3, Todo4, Todo5, Todo6],
+    images: [Todo1, Todo2, Todo3, Todo4, Todo5],
     features: [
       {
         title: "Authentication",
@@ -296,7 +294,7 @@ export const projectData = [
       Tools: ["Docker", "Docker Compose", "Nodemon"],
     },
 
-    images: [Food1, Food2, Food3, Food4, Food5, Food6],
+    images: [Food1, Food2, Food3, Food4, Food5],
 
     features: [
       {
