@@ -22,6 +22,7 @@ import {
   GitIcon,
   PostmanIcon,
   NpmIcon,
+  Ec2Icon,
 } from "../assets/icons";
 
 const containerVariants = {
@@ -48,6 +49,7 @@ const floatingIcons = [
   { icon: TailwindIcon, name: "Tailwind", pos: { right: "8%", top: "82%" }, depth: 14, floatDur: 4.9 },
   { icon: PostgresSQL, name: "PostgreSQL", pos: { left: "19%", top: "12%" }, depth: 12, floatDur: 6.0 },
   { icon: Redis, name: "Redis", pos: { right: "19%", top: "12%" }, depth: 20, floatDur: 4.0 },
+  { icon: Ec2Icon, name: "AWS EC2", pos: { right: "26%", top: "20%" }, depth: 24, floatDur: 5.2 },
   { icon: GithubIcon, name: "GitHub", pos: { left: "20%", top: "88%" }, depth: 18, floatDur: 5.6 },
   { icon: N8nIcon, name: "n8n", pos: { right: "20%", top: "90%" }, depth: 24, floatDur: 3.9 },
   { icon: JSIcon, name: "JavaScript", pos: { left: "13%", top: "54%" }, depth: 34, floatDur: 4.3 },

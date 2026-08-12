@@ -552,6 +552,7 @@ export const projectData = [
       ],
 
       Tools: [
+        "AWS EC2 (Ubuntu)",
         "Docker",
         "Git",
         "GitHub",
@@ -590,8 +591,8 @@ export const projectData = [
         desc: "Candidates can search, save, and apply for jobs while companies manage job postings, applications, and hiring workflows.",
       },
       {
-        title: "Workflow Automation",
-        desc: "n8n automates transactional emails, scheduled job alerts, interview notifications, and background workflows.",
+        title: "Workflow Automation (n8n on AWS EC2)",
+        desc: "Self-hosted n8n container on AWS EC2 automating candidate transactional emails, interview notifications, scheduled alerts, and Brevo webhooks.",
       },
       {
         title: "Subscription Payments",
@@ -601,11 +602,11 @@ export const projectData = [
 
     challenges: [
       {
-        title: "Workflow Automation",
+        title: "AWS EC2 n8n Deployment & SMTP Port Limits",
         problem:
-          "Free hosting platforms did not expose the required ports for n8n or support direct communication using the Send Email node, preventing the backend from connecting to the workflow service.",
+          "Free cloud platforms (Render/Railway) enforced Docker size and trial limits, while cloud providers blocked standard SMTP ports (25, 465, 587), breaking traditional email nodes.",
         solution:
-          "Configured n8n to communicate over standard HTTP endpoints and integrated the Brevo API within the workflow, enabling reliable email delivery and webhook communication without requiring custom port exposure.",
+          "Migrated n8n to an AWS EC2 (Ubuntu) instance via SSH with Docker, 1 GB swap, persistent SQLite volumes, and AWS Security Groups. Replaced direct SMTP with n8n HTTP Request nodes calling the Brevo REST API (`Render Backend → AWS EC2 → Docker → n8n → Brevo → Email`).",
       },
       {
         title: "AI Resume Evaluation",

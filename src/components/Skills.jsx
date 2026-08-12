@@ -23,6 +23,7 @@ import {
   PostgresSQL,
   NpmIcon,
   N8nIcon,
+  Ec2Icon,
 } from "../assets/icons";
 
 const skillsData = [
@@ -50,12 +51,13 @@ const skillsData = [
     ],
   },
   {
-    title: "DevOps & Tools",
+    title: "DevOps & Cloud",
     skills: [
       { icon: GitIcon, name: "Git" },
       { icon: GithubIcon, name: "GitHub" },
       { icon: PostmanIcon, name: "Postman" },
       { icon: Docker, name: "Docker" },
+      { icon: Ec2Icon, name: "AWS EC2" },
       { icon: N8nIcon, name: "n8n Workflows" },
       { icon: NpmIcon, name: "NPM" },
     ],

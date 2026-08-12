@@ -23,6 +23,7 @@ import Redux from "./Redux.svg?react";
 import Docker from "./Docker.svg?react";
 import PostgresSQL from "./PostgresSQL.svg?react";
 import N8nIcon from "./n8n.svg?react";
+import Ec2Icon from "./EC2.svg?react";
 export {
   HtmlIcon,
   CSS3Icon,
@@ -43,6 +44,7 @@ export {
   Redis,
   Redux,
   Docker,
+  Ec2Icon,
   NpmIcon,
   N8nIcon,
   RightArrowKey,
